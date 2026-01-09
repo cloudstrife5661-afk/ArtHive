@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ArtHive — Comunidade Criativa</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f14;
+      color: #fff;
+    }
+    header {
+      background: #161622;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      color: #7c7cff;
+      margin: 0;
+    }
+    nav a {
+      color: #ccc;
+      margin-left: 15px;
+      text-decoration: none;
+    }
+    nav a:hover { color: #fff; }.container {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #1b1b2a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .2s;
+}
+.card:hover { transform: scale(1.03); }
+.card img {
+  width: 100%;
+  display: block;
+}
+.card .info {
+  padding: 12px;
+}
+.card h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+.card p {
+  margin: 0;
+  font-size: 13px;
+  color: #aaa;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+  </style>
+</head>
+<body><header>
+  <h1>ArtHive</h1>
+  <nav>
+    <a href="#">Explorar</a>
+    <a href="#">Upload</a>
+    <a href="#">Perfil</a>
+  </nav>
+</header><main class="container">
+  <div class="card">
+    <img src="https://picsum.photos/400/300?1" />
+    <div class="info">
+      <h3>Arte Fantasia</h3>
+      <p>por Lucas</p>
+    </div>
+  </div>  <div class="card">
+    <img src="https://picsum.photos/400/300?2" />
+    <div class="info">
+      <h3>Personagem Anime</h3>
+      <p>por CriadorX</p>
+    </div>
+  </div>  <div class="card">
+    <img src="https://picsum.photos/400/300?3" />
+    <div class="info">
+      <h3>Concept Art</h3>
+      <p>por Artista</p>
+    </div>
+  </div>
+</main><footer>
+  © 2026 ArtHive — Plataforma autoral de arte
+</footer></body>
+    </html>
