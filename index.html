@@ -3,163 +3,212 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArtHive — Comunidade Criativa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; }body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(180deg, #0b0b12, #0f0f1f);
-  color: #fff;
-}
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
+    :root {
+      --bg-main: #0b0b14;
+      --bg-card: #16162a;
+      --primary: #8b8bff;
+      --secondary: #ff79c6;
+      --text-soft: #bdbdd7;
+    }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(18,18,32,0.9);
-  backdrop-filter: blur(10px);
-  padding: 18px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #1f1f3a;
-}
+    * { box-sizing: border-box; }
 
-header h1 {
-  margin: 0;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #8b8bff;
-}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #12122a, var(--bg-main));
+      color: white;
+    }
 
-nav a {
-  color: #cfcfff;
-  margin-left: 22px;
-  text-decoration: none;
-  font-size: 14px;
-  position: relative;
-}
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15,15,30,0.9);
+      backdrop-filter: blur(12px);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #22224a;
+    }
 
-nav a::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background: #8b8bff;
-  left: 0;
-  bottom: -5px;
-  transition: .3s;
-}
+    .logo {
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: var(--primary);
+    }
 
-nav a:hover::after { width: 100%; }
+    nav a {
+      color: var(--text-soft);
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-.hero {
-  padding: 70px 40px 40px;
-  text-align: center;
-}
+    nav a:hover { color: white; }
 
-.hero h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
-}
+    .hero {
+      padding: 80px 40px 50px;
+      text-align: center;
+    }
 
-.hero p {
-  color: #aaa;
-  max-width: 600px;
-  margin: auto;
-  font-size: 15px;
-}
+    .hero h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
 
-.container {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 25px;
-}
+    .hero span { color: var(--secondary); }
 
-.card {
-  background: linear-gradient(180deg, #1a1a2e, #141428);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-  transition: transform .3s, box-shadow .3s;
-  cursor: pointer;
-}
+    .hero p {
+      color: var(--text-soft);
+      max-width: 650px;
+      margin: auto;
+      font-size: 15px;
+    }
 
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
-}
+    .actions {
+      margin-top: 25px;
+    }
 
-.card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
+    .btn {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 12px 24px;
+      color: white;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 0 6px;
+    }
 
-.card .info {
-  padding: 15px;
-}
+    .container {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 28px;
+    }
 
-.card h3 {
-  margin: 0 0 6px;
-  font-size: 16px;
-}
+    .card {
+      background: linear-gradient(180deg, var(--bg-card), #101020);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,.6);
+      transition: transform .3s;
+    }
 
-.card p {
-  margin: 0;
-  font-size: 13px;
-  color: #aaa;
-}
+    .card:hover { transform: translateY(-6px); }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #777;
-  border-top: 1px solid #1f1f3a;
-  margin-top: 40px;
-}
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
 
-  </style>
-</head>
+    .info {
+      padding: 15px;
+    }
+
+    .info h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .info p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .like {
+      margin-top: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--secondary);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+      border-top: 1px solid #22224a;
+      margin-top: 40px;
+    }
+
+    input[type=file] {
+      display: none;
+    }
+  </style></head>
 <body><header>
-  <h1>ArtHive</h1>
+  <div class="logo">ArtHive</div>
   <nav>
     <a href="#">Explorar</a>
     <a href="#">Desafios</a>
-    <a href="#">Upload</a>
+    <a href="#upload">Upload</a>
     <a href="#">Perfil</a>
   </nav>
 </header><section class="hero">
-  <h2>Descubra, compartilhe e evolua sua arte</h2>
-  <p>Uma comunidade autoral para artistas digitais, ilustradores e criadores visuais. Mostre seu talento e conecte-se.</p>
-</section><main class="container">
-  <div class="card">
-    <img src="https://picsum.photos/500/400?1" />
-    <div class="info">
-      <h3>Fantasia Sombria</h3>
-      <p>por Lucas</p>
-    </div>
-  </div>  <div class="card">
-    <img src="https://picsum.photos/500/400?2" />
-    <div class="info">
-      <h3>Personagem Anime</h3>
-      <p>por CriadorX</p>
-    </div>
-  </div>  <div class="card">
-    <img src="https://picsum.photos/500/400?3" />
-    <div class="info">
-      <h3>Concept Art Sci‑Fi</h3>
-      <p>por Artista</p>
-    </div>
-  </div>  <div class="card">
-    <img src="https://picsum.photos/500/400?4" />
-    <div class="info">
-      <h3>Ilustração Digital</h3>
-      <p>por NeonDraw</p>
-    </div>
+  <h2>Onde artistas <span>ganham vida</span></h2>
+  <p>ArtHive é uma plataforma autoral para compartilhar ilustrações, artes digitais e personagens. Crie, inspire e seja visto.</p>
+  <div class="actions">
+    <label class="btn">
+      Enviar Arte
+      <input type="file" id="upload" accept="image/*">
+    </label>
+    <button class="btn">Criar Perfil</button>
   </div>
-</main><footer>
+</section><main class="container" id="gallery"></main><footer>
   © 2026 ArtHive — Plataforma autoral de arte
-</footer></body>
+</footer><script>
+  const gallery = document.getElementById('gallery');
+  const upload = document.getElementById('upload');
+
+  let posts = JSON.parse(localStorage.getItem('arthive_posts')) || [];
+
+  function render() {
+    gallery.innerHTML = '';
+    posts.forEach((post, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <img src="${post.img}">
+        <div class="info">
+          <h3>${post.title}</h3>
+          <p>por ${post.author}</p>
+          <div class="like" onclick="like(${i})">❤️ ${post.likes}</div>
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  }
+
+  function like(i) {
+    posts[i].likes++;
+    save();
+  }
+
+  function save() {
+    localStorage.setItem('arthive_posts', JSON.stringify(posts));
+    render();
+  }
+
+  upload.addEventListener('change', e => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      posts.unshift({
+        img: reader.result,
+        title: 'Nova Arte',
+        author: 'Você',
+        likes: 0
+      });
+      save();
+    };
+    reader.readAsDataURL(file);
+  });
+
+  render();
+</script></body>
 </html>
