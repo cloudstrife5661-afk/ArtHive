@@ -5,210 +5,173 @@
   <title>ArtHive — Comunidade Criativa</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">  <style>
     :root {
-      --bg-main: #0b0b14;
-      --bg-card: #16162a;
-      --primary: #8b8bff;
-      --secondary: #ff79c6;
-      --text-soft: #bdbdd7;
+      --bg-main:#080811;
+      --bg-card:#151528;
+      --primary:#8b8bff;
+      --secondary:#ff79c6;
+      --glow:0 0 15px rgba(139,139,255,.6);
+      --text-soft:#bdbdd7;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: radial-gradient(circle at top, #12122a, var(--bg-main));
-      color: white;
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:radial-gradient(circle at top,#14143a,var(--bg-main));
+      color:white;
+      overflow-x:hidden;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(15,15,30,0.9);
-      backdrop-filter: blur(12px);
-      padding: 18px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #22224a;
+    /* PARTICULAS */
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background:url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/img/stars.png');
+      opacity:.08;
+      pointer-events:none;
+      z-index:-1;
     }
 
-    .logo {
-      font-weight: 700;
-      font-size: 22px;
-      letter-spacing: 1px;
-      color: var(--primary);
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(10,10,30,.9);
+      backdrop-filter:blur(12px);
+      padding:18px 40px;
+      display:flex;justify-content:space-between;align-items:center;
+      border-bottom:1px solid #22224a
     }
 
-    nav a {
-      color: var(--text-soft);
-      margin-left: 20px;
-      text-decoration: none;
-      font-size: 14px;
+    .logo{font-size:22px;font-weight:700;color:var(--primary);text-shadow:var(--glow)}
+
+    nav a{color:var(--text-soft);margin-left:20px;text-decoration:none;font-size:14px}
+    nav a:hover{color:white}
+
+    .hero{text-align:center;padding:70px 30px}
+    .hero h2{font-size:40px;margin-bottom:10px}
+    .hero span{color:var(--secondary);text-shadow:0 0 20px rgba(255,121,198,.7)}
+    .hero p{max-width:650px;margin:auto;color:var(--text-soft)}
+
+    .search{margin-top:25px}
+    .search input{
+      padding:12px 20px;
+      width:280px;
+      border-radius:30px;
+      border:none;
+      outline:none;
+      background:#1a1a33;
+      color:white
     }
 
-    nav a:hover { color: white; }
-
-    .hero {
-      padding: 80px 40px 50px;
-      text-align: center;
+    .container{
+      padding:40px;
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:28px
     }
 
-    .hero h2 {
-      font-size: 38px;
-      margin-bottom: 12px;
+    .card{
+      background:linear-gradient(180deg,var(--bg-card),#0f0f22);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 20px 40px rgba(0,0,0,.7);
+      transition:.3s;
+      cursor:pointer
+    }
+    .card:hover{transform:translateY(-8px);box-shadow:0 0 40px rgba(139,139,255,.3)}
+
+    .card img{width:100%;height:220px;object-fit:cover}
+    .info{padding:15px}
+    .info h3{margin:0 0 5px;font-size:16px}
+    .info p{margin:0;font-size:13px;color:var(--text-soft)}
+    .like{margin-top:8px;color:var(--secondary);cursor:pointer}
+
+    /* MODAIS */
+    .modal{
+      position:fixed;inset:0;
+      background:rgba(0,0,0,.7);
+      display:none;align-items:center;justify-content:center;z-index:50
     }
 
-    .hero span { color: var(--secondary); }
-
-    .hero p {
-      color: var(--text-soft);
-      max-width: 650px;
-      margin: auto;
-      font-size: 15px;
+    .modal-content{
+      background:#141428;
+      padding:25px;
+      border-radius:18px;
+      max-width:500px;width:90%;
+      box-shadow:0 0 40px rgba(139,139,255,.4)
     }
 
-    .actions {
-      margin-top: 25px;
-    }
+    .modal img{width:100%;border-radius:12px;margin-bottom:15px}
 
-    .btn {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      border: none;
-      padding: 12px 24px;
-      color: white;
-      font-weight: 600;
-      border-radius: 30px;
-      cursor: pointer;
-      margin: 0 6px;
-    }
+    .close{cursor:pointer;color:var(--secondary);float:right}
 
-    .container {
-      padding: 40px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 28px;
-    }
+    footer{text-align:center;padding:30px;color:#777;border-top:1px solid #22224a}
 
-    .card {
-      background: linear-gradient(180deg, var(--bg-card), #101020);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,.6);
-      transition: transform .3s;
-    }
-
-    .card:hover { transform: translateY(-6px); }
-
-    .card img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-    }
-
-    .info {
-      padding: 15px;
-    }
-
-    .info h3 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
-
-    .info p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text-soft);
-    }
-
-    .like {
-      margin-top: 10px;
-      cursor: pointer;
-      font-size: 14px;
-      color: var(--secondary);
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      color: #777;
-      border-top: 1px solid #22224a;
-      margin-top: 40px;
-    }
-
-    input[type=file] {
-      display: none;
-    }
+    input[type=file]{display:none}
   </style></head>
 <body><header>
   <div class="logo">ArtHive</div>
   <nav>
     <a href="#">Explorar</a>
-    <a href="#">Desafios</a>
-    <a href="#upload">Upload</a>
-    <a href="#">Perfil</a>
+    <a href="#perfil" onclick="openProfile()">Perfil</a>
+    <label class="btn" style="cursor:pointer;color:var(--secondary)">Upload<input type="file" id="upload" accept="image/*"></label>
   </nav>
 </header><section class="hero">
   <h2>Onde artistas <span>ganham vida</span></h2>
-  <p>ArtHive é uma plataforma autoral para compartilhar ilustrações, artes digitais e personagens. Crie, inspire e seja visto.</p>
-  <div class="actions">
-    <label class="btn">
-      Enviar Arte
-      <input type="file" id="upload" accept="image/*">
-    </label>
-    <button class="btn">Criar Perfil</button>
+  <p>Compartilhe sua arte, descubra criadores e construa seu portfólio em uma comunidade autoral.</p>
+  <div class="search">
+    <input placeholder="Buscar por nome ou tag" oninput="search(this.value)">
   </div>
-</section><main class="container" id="gallery"></main><footer>
-  © 2026 ArtHive — Plataforma autoral de arte
-</footer><script>
-  const gallery = document.getElementById('gallery');
-  const upload = document.getElementById('upload');
+</section><main class="container" id="gallery"></main><footer>© 2026 ArtHive — Plataforma autoral</footer><!-- MODAL ARTE --><div class="modal" id="artModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeArt()">✖</span>
+    <img id="modalImg">
+    <h3 id="modalTitle"></h3>
+    <p id="modalAuthor"></p>
+  </div>
+</div><!-- MODAL PERFIL --><div class="modal" id="profileModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeProfile()">✖</span>
+    <h3>Perfil do Artista</h3>
+    <p><strong>Nome:</strong> Você</p>
+    <p><strong>Artes publicadas:</strong> <span id="count"></span></p>
+  </div>
+</div><script>
+  const gallery=document.getElementById('gallery');
+  const upload=document.getElementById('upload');
+  let posts=JSON.parse(localStorage.getItem('arthive_posts'))||[];
 
-  let posts = JSON.parse(localStorage.getItem('arthive_posts')) || [];
-
-  function render() {
-    gallery.innerHTML = '';
-    posts.forEach((post, i) => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${post.img}">
-        <div class="info">
-          <h3>${post.title}</h3>
-          <p>por ${post.author}</p>
-          <div class="like" onclick="like(${i})">❤️ ${post.likes}</div>
-        </div>
-      `;
-      gallery.appendChild(card);
+  function render(list=posts){
+    gallery.innerHTML='';
+    list.forEach((p,i)=>{
+      const c=document.createElement('div');
+      c.className='card';
+      c.innerHTML=`<img src="${p.img}"><div class="info"><h3>${p.title}</h3><p>por ${p.author}</p><div class="like" onclick="like(${i})">❤️ ${p.likes}</div></div>`;
+      c.onclick=()=>openArt(p);
+      gallery.appendChild(c);
     });
   }
 
-  function like(i) {
-    posts[i].likes++;
-    save();
+  function like(i){posts[i].likes++;save()}
+  function save(){localStorage.setItem('arthive_posts',JSON.stringify(posts));render()}
+
+  upload.onchange=e=>{
+    const f=e.target.files[0];const r=new FileReader();
+    r.onload=()=>{posts.unshift({img:r.result,title:'Nova Arte',author:'Você',likes:0});save()};
+    r.readAsDataURL(f);
   }
 
-  function save() {
-    localStorage.setItem('arthive_posts', JSON.stringify(posts));
-    render();
-  }
+  function search(t){render(posts.filter(p=>p.title.toLowerCase().includes(t.toLowerCase()))) }
 
-  upload.addEventListener('change', e => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = () => {
-      posts.unshift({
-        img: reader.result,
-        title: 'Nova Arte',
-        author: 'Você',
-        likes: 0
-      });
-      save();
-    };
-    reader.readAsDataURL(file);
-  });
+  function openArt(p){
+    artModal.style.display='flex';
+    modalImg.src=p.img;modalTitle.innerText=p.title;modalAuthor.innerText='por '+p.author;
+  }
+  function closeArt(){artModal.style.display='none'}
+
+  function openProfile(){profileModal.style.display='flex';count.innerText=posts.length}
+  function closeProfile(){profileModal.style.display='none'}
 
   render();
 </script></body>
-</html>
+      </html>
