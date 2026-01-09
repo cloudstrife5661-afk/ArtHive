@@ -3,53 +3,109 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ArtHive — Comunidade Criativa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0f0f14;
-      color: #fff;
-    }
-    header {
-      background: #161622;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      color: #7c7cff;
-      margin: 0;
-    }
-    nav a {
-      color: #ccc;
-      margin-left: 15px;
-      text-decoration: none;
-    }
-    nav a:hover { color: #fff; }.container {
-  padding: 30px;
+    * { box-sizing: border-box; }body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #0b0b12, #0f0f1f);
+  color: #fff;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(18,18,32,0.9);
+  backdrop-filter: blur(10px);
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1f1f3a;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #8b8bff;
+}
+
+nav a {
+  color: #cfcfff;
+  margin-left: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #8b8bff;
+  left: 0;
+  bottom: -5px;
+  transition: .3s;
+}
+
+nav a:hover::after { width: 100%; }
+
+.hero {
+  padding: 70px 40px 40px;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #aaa;
+  max-width: 600px;
+  margin: auto;
+  font-size: 15px;
+}
+
+.container {
+  padding: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 25px;
 }
+
 .card {
-  background: #1b1b2a;
-  border-radius: 12px;
+  background: linear-gradient(180deg, #1a1a2e, #141428);
+  border-radius: 18px;
   overflow: hidden;
-  transition: transform .2s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform .3s, box-shadow .3s;
+  cursor: pointer;
 }
-.card:hover { transform: scale(1.03); }
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+}
+
 .card img {
   width: 100%;
-  display: block;
+  height: 200px;
+  object-fit: cover;
 }
+
 .card .info {
-  padding: 12px;
+  padding: 15px;
 }
+
 .card h3 {
-  margin: 0 0 5px;
+  margin: 0 0 6px;
   font-size: 16px;
 }
+
 .card p {
   margin: 0;
   font-size: 13px;
@@ -58,8 +114,10 @@
 
 footer {
   text-align: center;
-  padding: 20px;
-  color: #666;
+  padding: 30px;
+  color: #777;
+  border-top: 1px solid #1f1f3a;
+  margin-top: 40px;
 }
 
   </style>
@@ -68,30 +126,40 @@ footer {
   <h1>ArtHive</h1>
   <nav>
     <a href="#">Explorar</a>
+    <a href="#">Desafios</a>
     <a href="#">Upload</a>
     <a href="#">Perfil</a>
   </nav>
-</header><main class="container">
+</header><section class="hero">
+  <h2>Descubra, compartilhe e evolua sua arte</h2>
+  <p>Uma comunidade autoral para artistas digitais, ilustradores e criadores visuais. Mostre seu talento e conecte-se.</p>
+</section><main class="container">
   <div class="card">
-    <img src="https://picsum.photos/400/300?1" />
+    <img src="https://picsum.photos/500/400?1" />
     <div class="info">
-      <h3>Arte Fantasia</h3>
+      <h3>Fantasia Sombria</h3>
       <p>por Lucas</p>
     </div>
   </div>  <div class="card">
-    <img src="https://picsum.photos/400/300?2" />
+    <img src="https://picsum.photos/500/400?2" />
     <div class="info">
       <h3>Personagem Anime</h3>
       <p>por CriadorX</p>
     </div>
   </div>  <div class="card">
-    <img src="https://picsum.photos/400/300?3" />
+    <img src="https://picsum.photos/500/400?3" />
     <div class="info">
-      <h3>Concept Art</h3>
+      <h3>Concept Art Sci‑Fi</h3>
       <p>por Artista</p>
+    </div>
+  </div>  <div class="card">
+    <img src="https://picsum.photos/500/400?4" />
+    <div class="info">
+      <h3>Ilustração Digital</h3>
+      <p>por NeonDraw</p>
     </div>
   </div>
 </main><footer>
   © 2026 ArtHive — Plataforma autoral de arte
 </footer></body>
-    </html>
+</html>
